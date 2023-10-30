@@ -1,6 +1,7 @@
 import cpsc2150.banking.models.Customer;
 import cpsc2150.banking.models.ICustomer;
 import cpsc2150.banking.models.IMortgage;
+import cpsc2150.banking.models.Mortgage;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
