@@ -2,9 +2,9 @@ package cpsc2150.banking.models;
 
 public class Mortgage extends AbsMortgage implements IMortgage {
 
-    double theHomeCost;
-    double theDownPayment;
-    int theYears;
+    private double theHomeCost;
+    private double theDownPayment;
+    private int theYears;
     ICustomer customer;
     public Mortgage(double homeCost, double downPayment, int years, ICustomer theCustomer) {
 
@@ -16,17 +16,17 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     private double percentDown() {
 
-        return (theHomeCost - theDownPayment) / theHomeCost * 100;
+        return ((theHomeCost - theDownPayment) / theHomeCost) * 100;
     }
     public boolean loanApproved() {
 
         double debtIncomeRatio = customer.getMonthlyDebtPayments() / customer.getIncome();
 
-        if((getRate() <= 10.0) || percentDown() < 3.5 || debtIncomeRatio > 40.0) {
-            return false;
+        if(getRate() <= 10.0 && percentDown() >= 3.5 && debtIncomeRatio <= 40.0) {
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 
@@ -39,7 +39,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     public double getRate() {
 
         double baseAPR = 2.5;
-        
+
         if(getYears() < 30) {
             baseAPR = baseAPR + 0.5;
         }
@@ -72,7 +72,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
             baseAPR = baseAPR + 0.0;
         }
 
-        return baseAPR;
+        return baseAPR * 12;
     }
 
     public double getPrincipal() {
