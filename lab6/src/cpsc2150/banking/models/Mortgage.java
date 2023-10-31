@@ -16,13 +16,13 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     private double percentDown() {
 
-        return ((theHomeCost - theDownPayment) / theHomeCost);
+        return ((theHomeCost - theDownPayment) / theHomeCost) * 100;
     }
     public boolean loanApproved() {
 
-        double debtIncomeRatio = customer.getMonthlyDebtPayments() / customer.getIncome();
+        double debtIncomeRatio = customer.getMonthlyDebtPayments()/ customer.getIncome();
 
-        if((getRate() * 12) < .1 && percentDown() >= .035 && debtIncomeRatio <= .4) {
+        if(((getRate() * 12) < .1) && (percentDown() >= .035) && (debtIncomeRatio <= .4)) {
             return true;
         }
         else {
@@ -32,7 +32,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     public double getPayment() {
 
-        return ((getRate()) * getPrincipal()) / (1 - Math.pow(1 + (getRate()), -(getPayment())));
+        return (getRate() * getPrincipal()) / (1 - Math.pow(1 + getRate(), -getYears()));
 
     }
 
