@@ -85,7 +85,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     }
     public boolean loanApproved() {
 
-        if(((getRate() * 12) < .1) && (percentDown() >= .035) && (debtIncomeRatio <= .4)) {
+        if(((apr * MONTHS_IN_YEAR) < RATETOOHIGH) && (percentDown() >= MIN_PERCENT_DOWN) && (debtIncomeRatio <= DTOITOOHIGH)) {
             return true;
         }
         else {
