@@ -101,7 +101,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     public double getRate() {
 
-        return apr;
+        return apr * MONTHS_IN_YEAR;
     }
 
     public double getPrincipal() {
