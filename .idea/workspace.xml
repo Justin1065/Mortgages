@@ -7,7 +7,6 @@
     <list default="true" id="e062cae5-db79-4a6d-ae5b-776077b43679" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Mortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Mortgage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
