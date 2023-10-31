@@ -11,6 +11,10 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     private double theHomeCost;
     private double theDownPayment;
     private int theYears;
+    private double apr;
+
+    private double principle;
+    private double monthlyPayment;
     ICustomer customer;
 
     /**
@@ -30,11 +34,46 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         theDownPayment = downPayment;
         theYears = years;
         customer = theCustomer;
+
+        apr = BASERATE;
+
+        if(theYears < MAX_YEARS) {
+            apr = apr + GOODRATEADD;
+        }
+        else {
+            apr = apr + NORMALRATEADD;
+        }
+
+        if(percentDown() < PREFERRED_PERCENT_DOWN) {
+            apr = apr + GOODRATEADD;
+        }
+
+        if(customer.getCreditScore() < BADCREDIT)
+        {
+            apr = apr + VERYBADRATEADD;
+        }
+        if((BADCREDIT <= customer.getCreditScore()) && (customer.getCreditScore() < FAIRCREDIT))
+        {
+            apr = apr + BADRATEADD;
+        }
+        if((FAIRCREDIT <= customer.getCreditScore()) && (customer.getCreditScore() < GOODCREDIT))
+        {
+            apr = apr + NORMALRATEADD;
+        }
+        if((GOODCREDIT <= customer.getCreditScore()) && (customer.getCreditScore() < GREATCREDIT))
+        {
+            apr = apr + GOODRATEADD;
+        }
+
+        principle = theHomeCost - theDownPayment;
+
+        double numPayments = MONTHS_IN_YEAR * years;
+        monthlyPayment = (apr * principle) / (1 - Math.pow(1 + apr, -numPayments));
     }
 
     private double percentDown() {
 
-        return ((theHomeCost - theDownPayment) / theHomeCost) * 100;
+        return ((theDownPayment) / theHomeCost) * 100;
     }
     public boolean loanApproved() {
 
@@ -50,52 +89,18 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     public double getPayment() {
 
-        return (getRate() * getPrincipal()) / (1 - Math.pow(1 + getRate(), -getYears()));
+        return monthlyPayment;
 
     }
 
     public double getRate() {
 
-        double baseAPR = .025;
-
-        if(theYears < 30) {
-            baseAPR = baseAPR + 0.005;
-        }
-        else {
-            baseAPR = baseAPR + .001;
-        }
-
-        if(percentDown() < .2) {
-            baseAPR = baseAPR + .005;
-        }
-
-        if(customer.getCreditScore() < 500)
-        {
-            baseAPR = baseAPR + .1;
-        }
-        if((500 <= customer.getCreditScore()) && (customer.getCreditScore() < 700))
-        {
-            baseAPR = baseAPR + .05;
-        }
-        if((600 <= customer.getCreditScore()) && (customer.getCreditScore() < 700))
-        {
-            baseAPR = baseAPR + .01;
-        }
-        if((700 <= customer.getCreditScore()) && (customer.getCreditScore() < 750))
-        {
-            baseAPR = baseAPR + .005;
-        }
-        if((750 <= customer.getCreditScore()) && (customer.getCreditScore() <= 850))
-        {
-            baseAPR = baseAPR + 0.0;
-        }
-
-        return baseAPR;
+        return apr;
     }
 
     public double getPrincipal() {
 
-        return theHomeCost - theDownPayment;
+        return principle;
     }
 
     public int getYears() {
