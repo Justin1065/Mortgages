@@ -15,6 +15,8 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     private double principle;
     private double monthlyPayment;
+    private double percentDown;
+    private double debtIncomeRatio;
     ICustomer customer;
 
     /**
@@ -34,6 +36,8 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         theDownPayment = downPayment;
         theYears = years;
         customer = theCustomer;
+
+        percentDown = ((theDownPayment) / theHomeCost) * 100;
 
         apr = BASERATE;
 
@@ -69,15 +73,15 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
         double numPayments = MONTHS_IN_YEAR * years;
         monthlyPayment = (apr * principle) / (1 - Math.pow(1 + apr, -numPayments));
+
+        debtIncomeRatio = customer.getMonthlyDebtPayments()/ customer.getIncome();
     }
 
     private double percentDown() {
 
-        return ((theDownPayment) / theHomeCost) * 100;
+        return percentDown;
     }
     public boolean loanApproved() {
-
-        double debtIncomeRatio = customer.getMonthlyDebtPayments()/ customer.getIncome();
 
         if(((getRate() * 12) < .1) && (percentDown() >= .035) && (debtIncomeRatio <= .4)) {
             return true;

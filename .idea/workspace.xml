@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e062cae5-db79-4a6d-ae5b-776077b43679" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/makefile.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/src/cpsc2150.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Mortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Mortgage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +19,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -47,20 +48,7 @@
       <recent name="$PROJECT_DIR$/lab6" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MortgageApp">
-    <configuration name="MortgageApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cpsc2150.banking.MortgageApp" />
-      <module name="Mortgages" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cpsc2150.banking.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="TestMortgage" type="JUnit" factoryName="JUnit">
       <module name="Mortgages" />
       <option name="PACKAGE_NAME" value="" />
@@ -71,11 +59,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MortgageApp" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
