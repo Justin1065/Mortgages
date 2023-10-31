@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e062cae5-db79-4a6d-ae5b-776077b43679" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Mortgages/src/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Mortgages.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/Mortgages.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/Mortgages.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/MortgageApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/MortgageApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/AbsCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/AbsCustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/AbsMortgage.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/AbsMortgage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/ICustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/ICustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/IMortgage.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/IMortgage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/out/production/Mortgages/cpsc2150/banking/models/Mortgage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/MortgageApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/MortgageApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/AbsCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/AbsCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/AbsMortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/AbsMortgage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/ICustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/ICustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/IMortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/IMortgage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/cpsc2150/banking/models/Mortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/cpsc2150/banking/models/Mortgage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/src/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/src/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mortgages/test/TestMortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/test/TestMortgage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +40,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/justinkang/Desktop/CPSC_2151/Mortgages/Mortgages/src"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/justinkang/Desktop/CPSC_2151/Mortgages/Mortgages/src&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Mortgages/src" />
