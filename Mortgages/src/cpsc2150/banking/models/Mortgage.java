@@ -16,13 +16,13 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     private double percentDown() {
 
-        return ((theHomeCost - theDownPayment) / theHomeCost) / 100;
+        return ((theHomeCost - theDownPayment) / theHomeCost);
     }
     public boolean loanApproved() {
 
         double debtIncomeRatio = customer.getMonthlyDebtPayments() / customer.getIncome();
 
-        if(getRate() < 10.0 && percentDown() >= 3.5 && debtIncomeRatio <= 40.0) {
+        if((getRate() * 12) < .1 && percentDown() >= .035 && debtIncomeRatio <= .4) {
             return true;
         }
         else {
@@ -32,47 +32,47 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     public double getPayment() {
 
-        return ((getRate() / 12) * getPrincipal()) / (1 - Math.pow((1 + (getRate() / 12)), -(customer.getMonthlyPay())));
+        return ((getRate()) * getPrincipal()) / (1 - Math.pow(1 + (getRate()), -(getPayment())));
 
     }
 
     public double getRate() {
 
-        double baseAPR = 2.5;
+        double baseAPR = .025;
 
-        if(getYears() < 30) {
-            baseAPR = baseAPR + 0.5;
+        if(theYears < 30) {
+            baseAPR = baseAPR + 0.005;
         }
         else {
-            baseAPR = baseAPR + 1.0;
+            baseAPR = baseAPR + .001;
         }
 
-        if(percentDown() < 20.0) {
-            baseAPR = baseAPR + 0.5;
+        if(percentDown() < .2) {
+            baseAPR = baseAPR + .005;
         }
 
         if(customer.getCreditScore() < 500)
         {
-            baseAPR = baseAPR + 10.0;
+            baseAPR = baseAPR + .1;
         }
         if((500 <= customer.getCreditScore()) && (customer.getCreditScore() < 700))
         {
-            baseAPR = baseAPR + 5.0;
+            baseAPR = baseAPR + .05;
         }
         if((600 <= customer.getCreditScore()) && (customer.getCreditScore() < 700))
         {
-            baseAPR = baseAPR + 1.0;
+            baseAPR = baseAPR + .01;
         }
         if((700 <= customer.getCreditScore()) && (customer.getCreditScore() < 750))
         {
-            baseAPR = baseAPR + 0.5;
+            baseAPR = baseAPR + .005;
         }
         if((750 <= customer.getCreditScore()) && (customer.getCreditScore() <= 850))
         {
             baseAPR = baseAPR + 0.0;
         }
 
-        return baseAPR * 12;
+        return baseAPR;
     }
 
     public double getPrincipal() {
