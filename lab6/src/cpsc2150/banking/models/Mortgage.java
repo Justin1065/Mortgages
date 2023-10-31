@@ -1,12 +1,12 @@
 package cpsc2150.banking.models;
 
 /**
- * @invariant theHomeCost >= 0 AND theDownPayment >= 0 AND MIN_YEARS <= theYears <= MAX_YEARS AND apr = BASERATE AND
- *            principle > 0 AND monthlyPayment > 0 AND 0 <= PercentDown < 1 AND debtIncomeRatio > 0
- * @correspondence self.theHomeCost = theHomeCost AND self.theDownPayment = theDownPayment AND
- *                 self.theYears = theYears AND self.apr = apr AND
- *                 self.principle = principle AND self.monthlyPayments = monthlyPayments AND
- *                 self.percentDown = percentDown AND self.debtIncomeRatio = debtIncomeRatio AND self.customer = theCustomer
+ * @invariant theHomeCost >= 0 AND theDownPayment >= 0 AND MIN_YEARS <= theYears <= MAX_YEARS AND apr > BASERATE AND
+ *            principle > 0 AND monthlyPayment > 0 AND 0 <= PercentDown < 1 AND debtIncomeRatio > 0 AND numPayments > 0
+ *
+ * @correspondence Payment = monthlyPayment AND Rate = apr AND Customer = customer AND DebtToIncomeRatio =
+ *                 debtIncomeRatio AND Principal = principal AND NumberOfPayments = numPayments AND PercentDown =
+ *                 percentDown
  *
  */
 public class Mortgage extends AbsMortgage implements IMortgage {
@@ -15,11 +15,12 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     private double theDownPayment;
     private int theYears;
     private double apr;
-
-    private double principle;
+    private double principal;
     private double monthlyPayment;
     private double percentDown;
     private double debtIncomeRatio;
+
+    private double numPayments;
     ICustomer customer;
 
     /**
@@ -32,6 +33,10 @@ public class Mortgage extends AbsMortgage implements IMortgage {
      *
      * @pre homeCost >= 0 AND downPayment >= 0 AND MIN_YEARS <= years <= MAX_YEARS
      * @post theHomeCost = homeCost AND theDownPayment = downPayment AND theYears = years AND customer = theCustomer
+     *       AND percentDown = theDownPayment/theHomeCost AND apr = [(BASERATE + rates that match the customer's
+     *       background information)/the months in the year] AND principle = theHomeCost - theDownPayment AND
+     *       monthlyPayment = [(apr * principle) / (1 - (1 + apr) raised to the negative numPayments))] AND
+     *       debtIncomeRatio = [(monthlyPayment * the months in the year)/ customer's income]
      */
     public Mortgage(double homeCost, double downPayment, int years, ICustomer theCustomer) {
 
@@ -77,17 +82,20 @@ public class Mortgage extends AbsMortgage implements IMortgage {
             apr = apr + GOODRATEADD;
         }
 
+        //dividing the apr to show the apr per month in a year
         apr = apr/MONTHS_IN_YEAR;
 
-        // Calculates the principle
-        principle = theHomeCost - theDownPayment;
+        // Calculates the principle based on the formula given
+        principal = theHomeCost - theDownPayment;
 
         // Calculates the number of payments made by the customer using the months in the years and the years passed in
-        double numPayments = MONTHS_IN_YEAR * years;
+        numPayments = MONTHS_IN_YEAR * years;
 
-        // Calculates the monthly payment using the apr, principle, and number of payments
-        monthlyPayment = (apr * principle) / (1 - Math.pow((1 + apr), (-numPayments)));
+        // Calculates the monthly payment using the apr, principle, and number of payments with the formula given
+        monthlyPayment = (apr * principal) / (1 - Math.pow((1 + apr), (-numPayments)));
 
+        // Calculates the debt income ratio using the monthly payments, months in the year, and the customer's income
+        // with the formula given
         debtIncomeRatio = (monthlyPayment * MONTHS_IN_YEAR)/ customer.getIncome();
     }
 
@@ -99,6 +107,8 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     public boolean loanApproved() {
 
         // If conditional that determines whether the customer can get a loan or not
+        //The loan is not rejected if the apr is less than the cap rate, if the percent down is greater than the min
+        //percent down required, and if the debt to income ratio is less than or equal than the cap ratio
         if(((apr * MONTHS_IN_YEAR) < RATETOOHIGH) && (percentDown() >= MIN_PERCENT_DOWN) && (debtIncomeRatio <= DTOITOOHIGH)) {
             return true;
         }
@@ -123,7 +133,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     // Returns the principle
     public double getPrincipal() {
 
-        return principle;
+        return principal;
     }
 
     // Returns the years
