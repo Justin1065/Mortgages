@@ -37,7 +37,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         theYears = years;
         customer = theCustomer;
 
-        percentDown = ((theDownPayment) / theHomeCost) * 100;
+        percentDown = theDownPayment / theHomeCost;
 
         apr = BASERATE;
 
@@ -69,12 +69,14 @@ public class Mortgage extends AbsMortgage implements IMortgage {
             apr = apr + GOODRATEADD;
         }
 
+        apr = apr/MONTHS_IN_YEAR;
+
         principle = theHomeCost - theDownPayment;
 
         double numPayments = MONTHS_IN_YEAR * years;
-        monthlyPayment = (apr * principle) / (1 - Math.pow(1 + apr, -numPayments));
+        monthlyPayment = (apr * principle) / (1 - Math.pow((1 + apr), (-numPayments)));
 
-        debtIncomeRatio = customer.getMonthlyDebtPayments()/ customer.getIncome();
+        debtIncomeRatio = (monthlyPayment * MONTHS_IN_YEAR)/ customer.getIncome();
     }
 
     private double percentDown() {
